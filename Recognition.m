@@ -1,11 +1,11 @@
 function [Numeral]=Recognition(StrokeTop,StrokeLeft,StrokeRight,StrokeBottom,Comp)
-% ²ÉÓÃËÄ±ßµÄÂÖÀª½á¹¹ÌØÕ÷ºÍ±Ê»®Í³¼Æ£¨½öÕë¶Ô 0 ºÍ 8£©Ê¶±ğ²ĞÈ±Êı×Ö
-% Comp ÊÇÓÃÓÚÊ¶±ğ 0ºÍ8 µÄµ×²¿²¹³äĞÅÏ¢
+% é‡‡ç”¨å››è¾¹çš„è½®å»“ç»“æ„ç‰¹å¾å’Œç¬”åˆ’ç»Ÿè®¡ï¼ˆä»…é’ˆå¯¹ 0 å’Œ 8ï¼‰è¯†åˆ«æ®‹ç¼ºæ•°å­—
+% Comp æ˜¯ç”¨äºè¯†åˆ« 0å’Œ8 çš„åº•éƒ¨è¡¥å……ä¿¡æ¯
 StrT='T';
 StrL='T';
 StrR='T';
 StrB='T';
-RStr='T'; % ÓÃÓÚ±£´æÊ¶±ğ³öµÄÊı×Ö
+RStr='T'; % ç”¨äºä¿å­˜è¯†åˆ«å‡ºçš„æ•°å­—
 [temp XT]=size(StrokeTop);
 [temp XL]=size(StrokeLeft);
 [temp XR]=size(StrokeRight);
@@ -42,7 +42,7 @@ for Ti=2:XT
              end
          end     
     else if  (StrokeTop(Ti)=='V')  % Top
-            if ((XR==2)&&(StrokeRight(2)=='C')) % Êı×Ö 3 ÓÒ¶ËÖ»ÓĞÒ»¸ö½á¹¹
+            if ((XR==2)&&(StrokeRight(2)=='C')) % 3 just one structure on the left
                 RStr='3';       
             else if ((XR==2)&&((StrokeLeft(2)=='P')||(StrokeLeft(3)=='P')||(StrokeLeft(XL)=='V')))
                       RStr='7';
@@ -67,8 +67,8 @@ for Ti=2:XT
                 end 
             end  
                 
-        end  %¶ÔÓ¦ÓÚ'V'
-    end % ¶ÔÓ¦ÓÚ'C'
-end % ¶ÔÓ¦ÓÚµÚÒ»¸ö for Ñ­»·   
+        end  %correspond for 'v'
+    end % correspond for 'C'
+end % For the first for  
 Numeral=RStr;                
             
